@@ -31,7 +31,7 @@ export class JestBuilder implements Builder<JestBuilderOptions> {
 
     return of(null).pipe(
       concatMap(() => this._runJest(roots, options)),
-      take(1),
+      take(1)
     );
   }
 
@@ -47,8 +47,10 @@ export class JestBuilder implements Builder<JestBuilderOptions> {
       const workspace = {
         rootPath: getSystemPath(normalize(rootPath)),
         pathToJest: getSystemPath(normalize(`${rootPath}/${options.jestPath}`)),
-        pathToConfig: options.jestConfig ? getSystemPath(normalize(`${rootPath}/${options.jestConfig}`)) : undefined,
+        pathToConfig: options.jestConfig ? getSystemPath(normalize(`${rootPath}/${options.jestConfig}`)) : undefined
       } as ProjectWorkspace;
+
+      console.log(workspace);
 
       const runner: Runner = new Runner(workspace, {
         createProcess: (workspace, args) => {

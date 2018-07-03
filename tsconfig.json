@@ -38,6 +38,7 @@
     "suppressTsconfigOverrideWarnings": true
   },
   "exclude": [
+    "src/schematics/**/files/**/*",
     "bazel-*/**/*",
     "dist/**/*",
     "node_modules/**/*",
